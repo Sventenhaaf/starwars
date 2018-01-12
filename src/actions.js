@@ -1,3 +1,9 @@
+
+export const searchTextAction = text => ({
+  type: 'SEARCH_TEXT',
+  searchText: text
+})
+
 export const fetchItems = (category) => {
   return dispatch => {
     dispatch({ type: 'START_FETCH', category })
@@ -14,8 +20,3 @@ export const fetchItems = (category) => {
       })
   }
 }
-
-export const searchTextAction = text => ({
-  type: 'SEARCH_TEXT',
-  searchText: text
-})
