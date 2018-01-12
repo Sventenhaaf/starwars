@@ -1,20 +1,20 @@
 import { connect } from 'react-redux'
 import itemSelector from '../selectors'
 import Items from '../components/Items'
-import { searchTextAction } from '../actions'
+import { searchTextChange } from '../actions'
 
-const ItemsContainer = ({ items, isFetching, category, dispatch, searchText }) => {
-  const textInput = text => { dispatch(searchTextAction(text))}
-  return Items({ items, isFetching, category, textInput, searchText })
+const ItemsContainer = ({ items, isFetching, selectedCategory, dispatch, searchText }) => {
+  const textInput = text => { dispatch(searchTextChange(text))}
+  return Items({ items, isFetching, selectedCategory, textInput, searchText })
 }
 
 const mapStateToProps = state => {
-  const { items, searchText, isFetching, category } = state
+  const { items, searchText, isFetching, selectedCategory } = state
   return {
     items: itemSelector(state),
     searchText,
     isFetching,
-    category
+    selectedCategory
   }
 }
 

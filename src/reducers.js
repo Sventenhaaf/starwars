@@ -3,17 +3,19 @@ const initialState = {
   items: [],
   searchText: '',
   isFetching: false,
-  category: ''
+  selectedCategory: ''
 }
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
 
     case 'START_FETCH':
-      return { ...state, isFetching: true, category: action.category }
+      return { ...state, searchText: '', isFetching: true, selectedCategory: action.category }
     case 'ITEMS_RECEIVED':
       return { ...state, items: action.items, isFetching: false }
-    case 'SEARCH_TEXT':
+    case 'RETURN_TO_CATEGORY':
+      return state
+    case 'SEARCH_TEXT_CHANGE':
       return { ...state, searchText: action.searchText }
     default:
       return state

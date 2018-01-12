@@ -1,10 +1,13 @@
 
-export const searchTextAction = text => ({
-  type: 'SEARCH_TEXT',
+export const searchTextChange = text => ({
+  type: 'SEARCH_TEXT_CHANGE',
   searchText: text
 })
 
-export const fetchItems = (category) => {
+export const fetchItems = (category, selectedCategory) => {
+  if (category === selectedCategory) {
+    return { type: 'RETURN_TO_CATEGORY' }
+  }
   return dispatch => {
     dispatch({ type: 'START_FETCH', category })
 
