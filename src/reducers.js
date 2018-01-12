@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
     case 'ITEMS_RECEIVED':
       return { ...state, items: action.items, isFetching: false }
     case 'RETURN_TO_CATEGORY':
-      return state
+      return Object.assign({}, state)
     case 'SEARCH_TEXT_CHANGE':
       return { ...state, searchText: action.searchText }
     default:
